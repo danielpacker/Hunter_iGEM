@@ -1,0 +1,11 @@
+=== Welcome to the Hunter iGEM repository ===
+
+All code is copyright by the members of the Hunter iGEM team. Please email us
+if you intend to use our code. Thanks! -- Daniel Packer <dp@danielpacker.org>
+
+MENU:
+* xorhash.py -- XOR hash function and testing utilites (complete)
+* xorsim.py -- graphical bacterial XOR hash simulation (in progress)
+
+TODO:
+* finish xorsim
