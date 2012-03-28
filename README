@@ -9,3 +9,11 @@ MENU:
 
 TODO:
 * finish xorsim
+
+To run the xorhash run the following python code:
+  import xorhash
+  xorhash.check()
+
+The above code will run the hash function on all possibly bytes with all possible keys in both left -> right and right -> left directions and check for duplicates in order to validate the 1:1 in/out (no collisions).
+
+To run xorsim, execute it with python -- make sure you have pygame installed. It currently doesn't do very much.
