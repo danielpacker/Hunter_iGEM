@@ -35,20 +35,32 @@ font = pygame.font.Font(None, 25)
 # center-align stuff
 xoffset=width/2
 
+reset=True # reset the plate
+
+bstr = ""
+bstrlist = list(bstr)
+
 ##########################################################################
 # MAIN LOOP
 
-
 while done==False:
 	for event in pygame.event.get(): # User did something
-		if (event.type == KEYUP) or (event.type == KEYDOWN):
+		if (event.type == KEYDOWN):
 			print event
 			if (event.key == K_ESCAPE):
 				done = True
+			elif (event.key==K_r):
+				reset = True
 		if event.type == pygame.QUIT: # clicked close
 			done=True # Flag that we are done, exit loop
 	# Set the screen background
 	screen.fill(black)
+
+	if (reset):
+		print("Resetting")
+		bstr = byte_to_bin(-1)
+		bstrlist = list(bstr)
+		reset = False
 
 	##################################################################
 	# BEGIN DRAWING
@@ -56,11 +68,11 @@ while done==False:
 	# draw agar plate
 	pygame.draw.circle(screen, white, [width/2, height/2], height/2)
 
+	# draw key
 	text = font.render("key", True, black)
+
 	screen.blit(text, [xoffset,20])
 	pygame.draw.line(screen,black,[xoffset-50,50],[xoffset+50,50],5)
-	bstr = byte_to_bin(-1)
-	bstrlist = list(bstr)
 	hash = []
 	for i in range(8):	
 		yoffset = (i+2) * 45
