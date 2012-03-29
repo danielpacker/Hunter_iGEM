@@ -73,7 +73,8 @@ while done==False:
 
 	screen.blit(text, [xoffset,20])
 	pygame.draw.line(screen,black,[xoffset-50,50],[xoffset+50,50],5)
-	hash = []
+
+	# draw all the colonies
 	for i in range(8):	
 		yoffset = (i+2) * 45
 		text = font.render(bstrlist[i],True, black)
