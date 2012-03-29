@@ -6,8 +6,10 @@
 #
 
 from xorhash import byte_to_bin, xor_chain
+import xorhashobj
 import pygame
 from pygame.locals import *
+import random
 
 # Define some colors
 black = ( 0, 0, 0)
@@ -37,8 +39,8 @@ xoffset=width/2
 
 reset=True # reset the plate
 
-bstr = ""
-bstrlist = list(bstr)
+# create hasher object with random byte
+x = xorhashobj.hasher(byte_to_bin(-1), True, True, 8)
 
 ##########################################################################
 # MAIN LOOP
@@ -58,8 +60,7 @@ while done==False:
 
 	if (reset):
 		print("Resetting")
-		bstr = byte_to_bin(-1)
-		bstrlist = list(bstr)
+		xo.reset()
 		reset = False
 
 	##################################################################

@@ -8,6 +8,9 @@
 # Promoter" -- http://www.ibc7.org/article/journal_v.php?sid=265
 #
 
+import random
+import collections
+
 
 # Run an xor chain on a given binary string with a given boolean key
 # You can specify # of bits and direction in which to XOR the bitstring
