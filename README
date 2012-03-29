@@ -6,6 +6,7 @@ if you intend to use our code. Thanks! -- Daniel Packer <dp@danielpacker.org>
 MENU:
 * xorhash.py -- XOR hash function and testing utilites (complete)
 * xorsim.py -- graphical bacterial XOR hash simulation (in progress)
+* xorhashobj.py -- same hash function as xorhash.py but as state machine object for step-by-step simulation (see xorhashertest.py for example use)
 
 TODO:
 * finish xorsim
