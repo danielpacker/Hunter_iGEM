@@ -93,6 +93,7 @@ colors_default = {
 	6: black,	7: black
 }
 colors = {}
+outputs = {}
 do_step = False
 continuous = True
 instructions = False
@@ -139,11 +140,13 @@ while done==False:
 		step=0
 		xo.reset()
 		colors = dict(colors_default)
+		outputs = dict()
 		reset = False	
 
 	xo.step()
 	output = xo.output()
 	colors[step] = green if output else red
+	outputs[step] = output
 
 	##################################################################
 	# BEGIN DRAWING
@@ -163,13 +166,22 @@ while done==False:
 	# draw all the colonies
 	for i in range(8):
 		yoffset = (i+2) * 45
+
+		# highlight the input that's active
 		if (i==step):
 			text = bigfont.render(bstrlist[i],True, blue)
 		else:
 			text = font.render(bstrlist[i],True, black)
+		screen.blit(text, [xoffset-50,yoffset-10])	
 
-		screen.blit(text, [xoffset-50,yoffset-10])
+		# draw the colony the green for 1 and red for 0
+		# and show the value in the circle	
 		pygame.draw.circle(screen, colors[i],  [xoffset, yoffset], 20)
+		outputtext = ""
+		if (i in outputs):
+			outputtext = str(int(outputs[i]))
+		outputtext = font.render(outputtext,True, white)
+		screen.blit(outputtext, [xoffset-10,yoffset-10])
 #screen, red if int(bstrlist[i]) else green, [xoffset, yoffset], 20)
 
 	# END DRAWING
