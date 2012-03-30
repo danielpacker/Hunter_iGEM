@@ -47,7 +47,9 @@ class hasher:
 		self.position = 0
 		del self.hash[:]	
 		self.key_new = self.key_orig
-	def key(self):
+	def key(self, newkey=-1):
+		if (newkey != -1):
+			self.key_orig = newkey
 		return self.key_orig
 	
 # /end xor hash object
